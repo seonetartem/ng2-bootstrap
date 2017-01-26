@@ -12,7 +12,9 @@ import { BsDatePickerViewComponent } from './bs-date-picker-view.component';
 import { BsDatePickerComponent } from './bs-date-picker.component';
 import { BsCalendarOptionsClass } from './common/bs-calendar-options.provider';
 import { BsDatePickerOptions } from './common/bs-date-picker-options.provider';
-import { BsDatePickerState } from './common/bs-date-picker-state.provider';
+// import { BsDatePickerState } from './common/bs-date-picker-state.provider';
+import { BsDatePickerContainer } from './popup/bs-date-picker-container.component';
+import { BsDatePickerPopupDirective } from './popup/bs-date-picker-popup.directive';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -25,9 +27,13 @@ import { BsDatePickerState } from './common/bs-date-picker-state.provider';
     BsDateTimePickerComponent,
     BsYearPickerComponent,
     BsDatePickerViewComponent,
-    BsDatePickerComponent
+    BsDatePickerComponent,
+    BsDatePickerContainer,
+    BsDatePickerPopupDirective
   ],
   exports: [
+    BsDatePickerContainer,
+    BsDatePickerPopupDirective,
     BsCurrentDateComponent,
     BsCustomRangePickerComponent,
     BsDayPickerComponent,
@@ -38,7 +44,8 @@ import { BsDatePickerState } from './common/bs-date-picker-state.provider';
     BsDatePickerViewComponent,
     BsDatePickerComponent
   ],
+  entryComponents: [BsDatePickerContainer],
   providers: [BsCalendarOptionsClass, BsDatePickerOptions]
 })
-export class BsDatepickerModule {
+export class BsDatePickerModule {
 }

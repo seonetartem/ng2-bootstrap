@@ -9,4 +9,7 @@ export { BsDatePickerComponent } from './bs-date-picker.component';
 export { BsCalendarOptionsClass } from './common/bs-calendar-options.provider';
 export { BsDatePickerOptions } from './common/bs-date-picker-options.provider';
 export { BsDatePickerState } from './common/bs-date-picker-state.provider';
-export { BsDatepickerModule } from './datepicker.module';
+export { BsDatePickerModule } from './bs-date-picker.module';
+
+export { BsDatePickerContainer } from './popup/bs-date-picker-container.component';
+export { BsDatePickerPopupDirective } from './popup/bs-date-picker-popup.directive';

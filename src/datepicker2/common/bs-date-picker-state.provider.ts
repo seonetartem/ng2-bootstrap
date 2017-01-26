@@ -19,8 +19,4 @@ export class BsDatePickerState {
 
   @OnChange() public showCalendars: boolean;
   public showCalendarsChange: EventEmitter<moment.Moment> = new EventEmitter<moment.Moment>();
-
-  public constructor() {
-    console.log(new Date());
-  }
 }
