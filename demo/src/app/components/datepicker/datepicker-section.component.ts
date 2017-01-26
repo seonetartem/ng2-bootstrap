@@ -10,6 +10,9 @@ let titleDoc = require('html-loader!markdown-loader!./docs/title.md');
 <demo-section [name]="name" [src]="src">
 <p>Datepicker is a highly configurable component that adds datepicker functionality to your pages. You can customize the date format and language, restrict the selectable date ranges.</p>
 
+  <pre>{{bsValue}}</pre>
+  <bs-datepicker [config]="opts" [(bsValue)]="bsValue"></bs-datepicker>
+
   <h2>Contents</h2>
   <ul>
     <li><a routerLink="." fragment="usage">Usage</a></li>
@@ -44,4 +47,13 @@ export class DatepickerSectionComponent {
   public src:string = 'https://github.com/valor-software/ng2-bootstrap/tree/development/src/datepicker';
   public demos: any = DEMOS;
   public titleDoc:string = titleDoc;
+
+  // temporary
+  public bsValue:any;
+  public opts: any = {
+    mode: 'date',
+    format: {
+      currentDate: 'LL'
+    }
+  };
 }
