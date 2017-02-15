@@ -165,7 +165,7 @@ export class PaginationComponent implements ControlValueAccessor, OnInit {
   }
 
   public ngOnInit():void {
-    this.classMap = this.elementRef.nativeElement.getAttribute('class') || '';
+    //this.classMap = this.elementRef.nativeElement.getAttribute('class') || '';
     // watch for maxSize
     this.maxSize = typeof this.maxSize !== 'undefined'
       ? this.maxSize
@@ -191,6 +191,10 @@ export class PaginationComponent implements ControlValueAccessor, OnInit {
     // this class
     this.pages = this.getPages(this.page, this.totalPages);
     this.inited = true;
+  }
+  
+  public ngAfterContentChecked() {
+    this.classMap = this.elementRef.nativeElement.getAttribute('class') || '';
   }
 
   public writeValue(value:number):void {
