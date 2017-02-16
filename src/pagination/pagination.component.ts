@@ -1,5 +1,5 @@
 import {
-  Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer, Self, forwardRef
+  Component, ElementRef, EventEmitter, Input, OnInit, AfterContentChecked, Output, Renderer, Self, forwardRef
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -54,7 +54,7 @@ const PAGINATION_TEMPLATE = `
   template: PAGINATION_TEMPLATE,
   providers: [PAGINATION_CONTROL_VALUE_ACCESSOR]
 })
-export class PaginationComponent implements ControlValueAccessor, OnInit {
+export class PaginationComponent implements ControlValueAccessor, OnInit, AfterContentChecked {
   public config:any;
   /** if `true` aligns each link to the sides of pager */
   @Input() public align:boolean;
