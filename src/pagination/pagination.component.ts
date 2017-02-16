@@ -141,8 +141,6 @@ export class PaginationComponent implements ControlValueAccessor, OnInit {
 
   public onChange:any = Function.prototype;
   public onTouched:any = Function.prototype;
-  public renderer:Renderer;
-  public elementRef:ElementRef;
   public classMap:string;
   public pages:any[];
 
@@ -152,9 +150,7 @@ export class PaginationComponent implements ControlValueAccessor, OnInit {
   protected inited:boolean = false;
   protected _page:number = 1;
 
-  public constructor(renderer:Renderer, elementRef:ElementRef, paginationConfig: PaginationConfig) {
-    this.renderer = renderer;
-    this.elementRef = elementRef;
+  public constructor(private renderer:Renderer, private elementRef:ElementRef, private paginationConfig: PaginationConfig) {
     if (!this.config) {
       this.configureOptions(paginationConfig.main);
     }
@@ -165,7 +161,6 @@ export class PaginationComponent implements ControlValueAccessor, OnInit {
   }
 
   public ngOnInit():void {
-    this.classMap = this.elementRef.nativeElement.getAttribute('class') || '';
     // watch for maxSize
     this.maxSize = typeof this.maxSize !== 'undefined'
       ? this.maxSize
@@ -191,6 +186,10 @@ export class PaginationComponent implements ControlValueAccessor, OnInit {
     // this class
     this.pages = this.getPages(this.page, this.totalPages);
     this.inited = true;
+  }
+  
+  public ngAfterContentChecked() {
+    this.classMap = this.elementRef.nativeElement.getAttribute('class') || '';
   }
 
   public writeValue(value:number):void {
